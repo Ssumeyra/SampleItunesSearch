@@ -18,7 +18,7 @@
             android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewParent"
+        android:id="@+id/recyclerViewSection"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_gravity="center_vertical"

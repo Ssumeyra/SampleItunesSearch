@@ -19,6 +19,7 @@
         <action
             android:id="@+id/action_contentDetail_to_searchFragment"
             app:destination="@id/searchFragment" />
-        <argument android:name="contentItem" />
+        <argument android:name="contentItem"
+            app:argType="string" />
     </fragment>
 </navigation>

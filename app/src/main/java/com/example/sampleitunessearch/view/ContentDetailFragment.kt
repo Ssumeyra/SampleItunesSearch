@@ -17,7 +17,8 @@ import kotlinx.android.synthetic.main.fragment_search.*
 
 class ContentDetailFragment : Fragment() {
 
-    private lateinit var contentItemParametresi : ItunesModel
+    //private lateinit var contentItemParameter : ItunesModel
+    private lateinit var contentItemParameter : String
     private lateinit var viewModel: ContentDetailViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,13 +39,13 @@ class ContentDetailFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(ContentDetailViewModel::class.java)
         observeLiveData()
-        /*arguments?.let {
-            contentItemParametresi= com.example.sampleitunessearch.view.ContentDetailFragmentArgs.fromBundle(
+       arguments?.let {
+           contentItemParameter= ContentDetailFragmentArgs.fromBundle(
                 it
             ).contentItem
-            println(contentItemParametresi)
+            //println(contentItemParameter as ItunesModel)
         }
-        navigatebutton2.setOnClickListener{
+         /*navigatebutton2.setOnClickListener{
             val action=ContentDetailFragmentDirections.actionContentDetailToSearchFragment()
             Navigation.findNavController(it).navigate(action)
         }*/

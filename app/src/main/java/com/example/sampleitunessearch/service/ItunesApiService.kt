@@ -16,6 +16,6 @@ class ItunesApiService {
         .build()
         .create(ItunesApi::class.java)
     fun getData(term: String):Single<SearchResultModel>{
-        return api.getContent(term,25,25)
+        return api.getContent(term,50,50)
     }
 }
