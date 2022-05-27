@@ -10,5 +10,5 @@ import retrofit2.http.Query
 
 interface ItunesApi {
     @GET("search")
-    fun getContent(@Query("term") term:String):Single<SearchResultModel>
+    fun getContent(@Query("term") term:String,@Query("limit") limit:Int,@Query("offset") offset:Int):Single<SearchResultModel>
 }

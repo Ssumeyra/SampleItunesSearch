@@ -1,3 +1,5 @@
+package com.example.sampleitunessearch.view.decoration
+
 import android.graphics.*
 import com.squareup.picasso.Transformation
 
@@ -19,8 +21,9 @@ class CircleTransform : Transformation {
         )
         paint.setShader(shader)
         paint.setAntiAlias(true)
+        val rect = Rect(0, 0, bitmap.width, bitmap.height)
         val r = size / 2f
-        canvas.drawCircle(r, r, r, paint)
+        canvas.drawRoundRect(RectF(rect),10f,10f, paint)
         squaredBitmap.recycle()
         return bitmap
     }

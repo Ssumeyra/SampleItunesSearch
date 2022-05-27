@@ -1,6 +1,6 @@
 package com.example.sampleitunessearch.adapter
 
-import CircleTransform
+import com.example.sampleitunessearch.view.decoration.CircleTransform
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,6 @@ import com.example.sampleitunessearch.model.ItunesModel
 import com.example.sampleitunessearch.view.SearchFragmentDirections
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.content_item_recycler_row.view.*
-import kotlinx.android.synthetic.main.fragment_search.view.*
 
 class ContentItemRecyclerAdapter(val contentList:ArrayList<ItunesModel>):RecyclerView.Adapter<ContentItemRecyclerAdapter.ContentItemViewHolder>() {
     class ContentItemViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){

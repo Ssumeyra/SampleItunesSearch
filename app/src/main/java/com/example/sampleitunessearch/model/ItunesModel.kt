@@ -26,14 +26,4 @@ data class ItunesModel(
     @SerializedName("primaryGenreName"       ) var primaryGenreName       : String? = null,
     @SerializedName("previewUrl"             ) var previewUrl             : String? = null,
     @SerializedName("description"            ) var description            : String? = null
-) {
-}
-data class SearchResultModel (
-    @SerializedName("resultCount")
-    @Expose
-    var resultCount :Int,
-
-    @SerializedName("results")
-    @Expose
-    var resultModels: List<ItunesModel>? = null
 )

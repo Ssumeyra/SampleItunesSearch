@@ -1,19 +1,19 @@
 package com.example.sampleitunessearch.view
 
+import android.content.Context
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sampleitunessearch.R
 import com.example.sampleitunessearch.adapter.ContentItemRecyclerAdapter
+import com.example.sampleitunessearch.view.decoration.Utility
 import com.example.sampleitunessearch.viewmodel.ContentListViewModel
 import kotlinx.android.synthetic.main.content_item_recycler_row.*
 import kotlinx.android.synthetic.main.fragment_search.*
+
 
 class SearchFragment : Fragment() {
 
@@ -40,7 +40,13 @@ class SearchFragment : Fragment() {
         progressbar.visibility=View.GONE
         viewModel=ViewModelProvider(this).get(ContentListViewModel::class.java)
 
-        recyclerView.layoutManager=GridLayoutManager(context,3)
+        val wm = context?.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+        val display: Display = wm.defaultDisplay
+
+        println(display.width)
+        recyclerView.layoutManager=GridLayoutManager(context,
+            Utility.calculateNoOfColumns(requireContext(),180f))
         recyclerView.adapter=recyclerContentItemAdapter
         observeLiveData()
 

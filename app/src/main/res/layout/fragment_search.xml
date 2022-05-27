@@ -3,29 +3,76 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.SearchFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="409dp"
-        android:layout_height="500dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/errorMessageText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Something went wrong"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
-    <TextView
+    <LinearLayout
+        android:id="@+id/linearLayoutparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.SearchFragment">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/searchText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:drawableLeft="@android:drawable/ic_search_category_default"
+                android:ems="10"
+                android:hint="Search"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="20dp"
+                tools:layout_editor_absoluteY="19dp" />
+
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Search">
+
+            </Button>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Section">
+
+        </TextView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/errorMessageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Something went wrong"
+                tools:layout_editor_absoluteX="133dp"
+                tools:layout_editor_absoluteY="248dp"></TextView>
+
+            <TextView
         android:id="@+id/emptyMessageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,31 +91,6 @@
         app:layout_constraintStart_toStartOf="@+id/recyclerView"
         app:layout_constraintTop_toTopOf="@+id/recyclerView"></ProgressBar>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/searchText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:ems="10"
-            android:drawableLeft="@android:drawable/ic_search_category_default"
-            android:inputType="textPersonName"
-            android:hint="Search"
-            tools:layout_editor_absoluteX="20dp"
-            tools:layout_editor_absoluteY="19dp" />
-
-        <Button
-            android:id="@+id/search_button"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Search">
-
-        </Button>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
