@@ -40,11 +40,6 @@ class SearchFragment : Fragment() {
         progressbar.visibility=View.GONE
         viewModel=ViewModelProvider(this).get(ContentListViewModel::class.java)
 
-        val wm = context?.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-
-        val display: Display = wm.defaultDisplay
-
-        println(display.width)
         recyclerView.layoutManager=GridLayoutManager(context,
             Utility.calculateNoOfColumns(requireContext(),180f))
         recyclerView.adapter=recyclerContentItemAdapter
