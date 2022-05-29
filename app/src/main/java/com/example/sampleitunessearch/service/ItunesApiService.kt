@@ -1,6 +1,5 @@
 package com.example.sampleitunessearch.service
 
-import com.example.sampleitunessearch.model.ItunesModel
 import com.example.sampleitunessearch.model.SearchResultModel
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -18,4 +17,5 @@ class ItunesApiService {
     fun getData(term: String):Single<SearchResultModel>{
         return api.getContent(term,50,50)
     }
+
 }

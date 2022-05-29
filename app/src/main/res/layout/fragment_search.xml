@@ -10,45 +10,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".view.SearchFragment">
+        tools:context=".view.SearchFragment"
+        android:layout_margin="20dp">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
 
             <EditText
                 android:id="@+id/searchText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:drawableLeft="@android:drawable/ic_search_category_default"
                 android:ems="10"
                 android:hint="Search"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="20dp"
-                tools:layout_editor_absoluteY="19dp" />
+                tools:layout_editor_absoluteY="19dp"
+               />
 
             <Button
                 android:id="@+id/search_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Search">
+                android:text="Search"
+                android:lines="1"
+                android:scrollHorizontally="true"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/purple_200"
+                android:drawableLeft="@drawable/searchicon"
+                android:layout_marginLeft="5dp">
 
             </Button>
 
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/sectionTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Section">
-
-        </TextView>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -70,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:text="Something went wrong"
                 tools:layout_editor_absoluteX="133dp"
-                tools:layout_editor_absoluteY="248dp"></TextView>
+                tools:layout_editor_absoluteY="248dp"
+                android:textSize="15dp"></TextView>
 
             <TextView
         android:id="@+id/emptyMessageText"
@@ -80,7 +83,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent"
+                android:textSize="15dp"></TextView>
 
     <ProgressBar
         android:id="@+id/progressbar"

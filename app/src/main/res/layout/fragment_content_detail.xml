@@ -3,11 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ContentFragment"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,8 +24,7 @@
             android:id="@+id/itemDetailImage"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:layout_weight="2"
-            android:layout_margin="3dp">
+            android:layout_weight="2">
 
         </ImageView>
         <LinearLayout
@@ -27,32 +32,52 @@
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_weight="4"
-            android:layout_margin="3dp">
+            android:layout_margin="10dp">
             <TextView
                 android:id="@+id/artistNameDetailText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title1"
-                android:layout_margin="3dp">
-
+                android:textStyle="bold"
+                android:textSize="25dp"
+>
             </TextView>
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    >
+                </TextView>
+        </LinearLayout>
+
             <TextView
-                android:id="@+id/descriptionDetailText"
+                android:id="@+id/country"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title2"
-                android:layout_margin="3dp">
-
+                android:textSize="18dp"
+                android:layout_marginTop="10dp"
+                >
             </TextView>
-        </LinearLayout>
     </LinearLayout>
+
         <TextView
+            android:id="@+id/collectionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Description"
-            android:layout_margin="3dp"
+            android:textStyle="bold"
+            android:textSize="18dp"
             android:layout_below="@+id/detail_horizontal_layout">
 
         </TextView>
+        <TextView
+            android:id="@+id/descriptionDetailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+>
+        </TextView>
+
     </LinearLayout>
+    </ScrollView>
 </layout>

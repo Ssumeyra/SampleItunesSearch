@@ -1,8 +1,11 @@
 package com.example.sampleitunessearch.view
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -22,6 +25,8 @@ class SearchFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
     }
 
@@ -46,16 +51,33 @@ class SearchFragment : Fragment() {
         observeLiveData()
 
         search_button.setOnClickListener{
+            hideKeyboard()
             progressbar.visibility=View.VISIBLE
             viewModel.refreshData(searchText.text.toString())
         }
+    }
+
+    fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+    fun Activity.hideKeyboard() {
+        hideKeyboard(currentFocus ?: View(this))
+    }
+    fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
     private fun observeLiveData(){
         viewModel.contents.observe(viewLifecycleOwner, Observer {contents->
             contents?.let {
                 recyclerView.visibility=View.VISIBLE
-                emptyMessageText.visibility=View.GONE
                 recyclerContentItemAdapter.contentListUpdate(contents)
+                if(contents.size>0) {
+                    emptyMessageText.visibility = View.GONE
+                }
+                else{
+                    emptyMessageText.visibility = View.VISIBLE
+                }
             }
         })
         viewModel.errorMessage.observe(viewLifecycleOwner, Observer {error->
@@ -67,7 +89,6 @@ class SearchFragment : Fragment() {
                 }
                 else{
                     errorMessageText.visibility=View.GONE
-                    emptyMessageText.visibility=View.GONE
                 }
             }
         })
@@ -81,7 +102,6 @@ class SearchFragment : Fragment() {
                 }
                 else{
                     progressbar.visibility=View.GONE
-                    emptyMessageText.visibility=View.GONE
                 }
             }
         })

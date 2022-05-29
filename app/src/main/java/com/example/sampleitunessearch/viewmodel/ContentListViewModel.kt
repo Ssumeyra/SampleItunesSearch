@@ -35,6 +35,8 @@ class ContentListViewModel:ViewModel() {
                         val response=t.resultModels as List<ItunesModel>
                         val result = response.groupBy { it.wrapperType }
                         val hMap: MutableMap<String, List<ItunesModel>> = HashMap()
+
+                        //section ile oluturulan data
                         for(s in result) {
                             val key= s.key
                             val value=s.value
